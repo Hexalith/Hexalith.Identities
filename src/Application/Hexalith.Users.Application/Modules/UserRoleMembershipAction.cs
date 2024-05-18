@@ -4,43 +4,44 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Hexalith.Application.Users.Modules;
-
 using Hexalith.Application.Authorizations;
 using Hexalith.Application.Modules;
+using Hexalith.Application.Users.Modules;
+
+namespace Hexalith.Users.Application.Modules;
 
 /// <summary>
 /// Represents an action to add a role to a user.
 /// </summary>
 public sealed class UserRoleMembershipAction : IApplicationAction
 {
+    private static IApplicationModule? _parentModule;
+
     /// <summary>
     /// Gets the description of the action.
     /// </summary>
-    public const string Description = "Manage user role membership";
+    public static string Description => "Manage user role membership";
 
     /// <summary>
     /// Gets the name of the action.
     /// </summary>
-    public const string Name = "User roles";
-
-    /// <summary>
-    /// Gets the path of the action.
-    /// </summary>
-    public const string Path = AuthorizationModule.Path + "/user/roles";
-
-    /// <summary>
-    /// Gets the role associated with the action.
-    /// </summary>
-    public const string Role = RoleRoles.AssignRoleToUser;
-
-    private static IApplicationModule? _parentModule;
+    public static string Name => "User roles";
 
     /// <summary>
     /// Gets the parent module for this action.
     /// </summary>
     /// <value>The parent module.</value>
     public static IApplicationModule ParentModule => _parentModule ??= new AuthorizationModule();
+
+    /// <summary>
+    /// Gets the path of the action.
+    /// </summary>
+    public static string Path => AuthorizationModule.Path + "/user/roles";
+
+    /// <summary>
+    /// Gets the role associated with the action.
+    /// </summary>
+    public static string Role => RoleRoles.AssignRoleToUser;
 
     /// <inheritdoc/>
     string IApplicationAction.Description => Description;

@@ -2,8 +2,10 @@
 	<PropertyGroup>
 		<TargetFramework>$(CommonTargetFrameworks)</TargetFramework>
 	</PropertyGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\Common\Hexalith.Extensions\Hexalith.Extensions.csproj" />
-	  <ProjectReference Include="..\Hexalith.Domain.Abstractions\Hexalith.Domain.Abstractions.csproj" />
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true' or '$(BuildingByReSharper)' == 'true'">
+		<ProjectReference Include="$(HexalithPath)\src\Core\Domain\Hexalith.Domain.Abstractions\Hexalith.Domain.Abstractions.csproj" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
+		<PackageReference Include="Hexalith.Domain.Abstractions" Version="$(HexalithVersion)" />
 	</ItemGroup>
 </Project>
