@@ -10,8 +10,8 @@ using System.Security.Claims;
 using System.Text.Json;
 
 using Hexalith.Infrastructure.Security.Abstractions.Models;
-using Hexalith.UI.Authentications.Components.Account.Pages;
-using Hexalith.UI.Authentications.Components.Account.Pages.Manage;
+using Hexalith.Authentications.UI.Components.Account.Pages;
+using Hexalith.Authentications.UI.Components.Account.Pages.Manage;
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;

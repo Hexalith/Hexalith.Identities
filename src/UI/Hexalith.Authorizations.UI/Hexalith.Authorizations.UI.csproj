@@ -9,7 +9,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Application\Hexalith.Application.Users\Hexalith.Application.Users.csproj" />
+	  <ProjectReference Include="..\..\Application\Hexalith.Users.Application\Hexalith.Users.Application.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -4,12 +4,6 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Hexalith.Infrastructure.ClientAppOnServer.Helpers;
-
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
-
 using Dapr.Actors.Runtime;
 
 using FluentValidation;
@@ -19,16 +13,10 @@ using Hexalith.Application.Commands;
 using Hexalith.Application.Projections;
 using Hexalith.Application.Tasks;
 using Hexalith.Domain.Messages;
-using Hexalith.Infrastructure.ClientApp.Helpers;
 using Hexalith.Infrastructure.ClientAppOnServer.Security;
 using Hexalith.Infrastructure.ClientAppOnServer.Services;
 using Hexalith.Infrastructure.DaprRuntime.Helpers;
-using Hexalith.Infrastructure.Emails.SendGrid.Helpers;
-using Hexalith.Infrastructure.GoogleMaps.Helpers;
-using Hexalith.Infrastructure.Security.Abstractions.Models;
 using Hexalith.Infrastructure.WebApis.Helpers;
-using Hexalith.UI.Authentications.Components.Account;
-using Hexalith.UI.Authentications.Helpers;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -44,6 +32,12 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 using Serilog;
 
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
+
+namespace Hexalith.Infrastructure.ClientAppOnServer.Helpers;
+
 /// <summary>
 /// Class HexalithWebApi.
 /// </summary>
@@ -57,7 +51,10 @@ public static class ServerSideClientAppHelper
     /// <returns>The updated service collection.</returns>
     public static IServiceCollection AddHexalithServerSideClientApp(
         this IServiceCollection services,
-        IConfiguration configuration) => services.AddHexalithClientApp(configuration);
+        IConfiguration configuration)
+    {
+        return services.AddHexalithClientApp(configuration);
+    }
 
     /// <summary>
     /// Creates the server-side client application.

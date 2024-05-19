@@ -10,7 +10,7 @@ using System.Diagnostics;
 using System.Security.Claims;
 
 using Hexalith.Infrastructure.Security.Abstractions.Models;
-using Hexalith.UI.Authentications.ViewModels;
+using Hexalith.Authentications.UI.ViewModels;
 
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
