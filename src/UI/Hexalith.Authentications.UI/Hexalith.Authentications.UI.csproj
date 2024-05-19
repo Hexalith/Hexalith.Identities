@@ -8,7 +8,9 @@
 		<PackageReference Include="Microsoft.Identity.Web.UI" Version="$(MicrosoftIdentityWebVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Domain\Hexalith.Users.Domain\Hexalith.Users.Domain.csproj" />
+	  <ProjectReference Include="..\..\Domain\Hexalith.Identities.Domain\Hexalith.Identities.Domain.csproj" />
+	  <ProjectReference Include="..\..\Infrastructure\Hexalith.Identities.Security.Abstractions\Hexalith.Identities.Security.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\Infrastructure\Hexalith.Infrastructure.Security.Abstractions\Hexalith.Infrastructure.Security.Abstractions.csproj" />
 	</ItemGroup>
 
 </Project>

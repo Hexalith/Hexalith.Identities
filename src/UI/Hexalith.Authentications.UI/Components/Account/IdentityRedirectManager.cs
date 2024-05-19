@@ -4,7 +4,7 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Hexalith.UI.Authentications.Components.Account;
+namespace Hexalith.Authentications.UI.Components.Account;
 
 using System.Diagnostics.CodeAnalysis;
 

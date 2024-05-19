@@ -9,6 +9,6 @@
 		<PackageReference Include="Hexalith.Domain.Abstractions" Version="$(HexalithVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\Hexalith.Identities.Events\Hexalith.Identities.Events.csproj" />
+		<ProjectReference Include="..\Hexalith.Identities.Events\Hexalith.Identities.Events.csproj" />
 	</ItemGroup>
 </Project>

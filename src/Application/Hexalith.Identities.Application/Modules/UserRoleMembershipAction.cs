@@ -4,16 +4,21 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
+namespace Hexalith.Identities.Application.Modules;
+
 using Hexalith.Application.Authorizations;
 using Hexalith.Application.Modules;
-
-namespace Hexalith.Identities.Application.Modules;
 
 /// <summary>
 /// Represents an action to add a role to a user.
 /// </summary>
 public sealed class UserRoleMembershipAction : IApplicationAction
 {
+    /// <summary>
+    /// Gets the path of the action.
+    /// </summary>
+    public const string Path = AuthorizationModule.Path + "/user/roles";
+
     private static IApplicationModule? _parentModule;
 
     /// <summary>
@@ -31,11 +36,6 @@ public sealed class UserRoleMembershipAction : IApplicationAction
     /// </summary>
     /// <value>The parent module.</value>
     public static IApplicationModule ParentModule => _parentModule ??= new AuthorizationModule();
-
-    /// <summary>
-    /// Gets the path of the action.
-    /// </summary>
-    public static string Path => AuthorizationModule.Path + "/user/roles";
 
     /// <summary>
     /// Gets the role associated with the action.

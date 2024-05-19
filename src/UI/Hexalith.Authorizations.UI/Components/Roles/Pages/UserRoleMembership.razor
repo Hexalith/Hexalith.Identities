@@ -1,4 +1,6 @@
-﻿@attribute [Route(UserRoleMembershipAction.Path)]
+﻿@using Hexalith.Application.Authorizations
+@using Hexalith.Identities.Application.Modules
+@attribute [Route(UserRoleMembershipAction.Path)]
 @attribute [Route(UserRoleMembershipAction.Path + $"/{{{nameof(UserId)}}}")]
 @attribute [Authorize(Roles = @RoleRoles.ViewUserRoles)]
 <title>Register a new role</title>

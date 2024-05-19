@@ -12,8 +12,4 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Domain\Hexalith.Identities.Domain\Hexalith.Identities.Domain.csproj" />
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="NewFolder\" />
-	  <Folder Include="Projections\" />
-	</ItemGroup>
 </Project>
