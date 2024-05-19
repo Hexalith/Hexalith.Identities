@@ -16,13 +16,11 @@
 		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.WebApis\Hexalith.Infrastructure.WebApis.csproj" />
 		<ProjectReference Include="$(HexalithPath)\src\Core\Infrastructure\Hexalith.Infrastructure.DaprRuntime\Hexalith.Infrastructure.DaprRuntime.csproj" />
 		<ProjectReference Include="$(HexalithPath)\src\Core\UI\Hexalith.UI.Components\Hexalith.UI.Components.csproj" />
-		<ProjectReference Include="$(HexalithPartiesPath)\src\Infrastructure\Hexalith.Parties.GoogleMaps\Hexalith.Parties.GoogleMaps.csproj" />
 	</ItemGroup>
 	<ItemGroup Condition="'$(BuildingInsideVisualStudio)' != 'true' and '$(BuildingByReSharper)' != 'true'">
 		<PackageReference Include="Hexalith.Infrastructure.WebApis" Version="$(HexalithVersion)" />
 		<PackageReference Include="Hexalith.Infrastructure.DaprRuntime" Version="$(HexalithVersion)" />
 		<PackageReference Include="Hexalith.UI.Components" Version="$(HexalithVersion)" />
-		<PackageReference Include="Hexalith.Parties.GoogleMaps" Version="$(HexalithPartiesVersion)" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\Hexalith.Infrastructure.Security.Abstractions\Hexalith.Infrastructure.Security.Abstractions.csproj" />

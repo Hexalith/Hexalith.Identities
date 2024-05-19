@@ -6,6 +6,6 @@
 		<PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="$(MicrosoftExtensionsPackagesVersion)" />
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\..\Domain\Hexalith.Users.Domain\Hexalith.Users.Domain.csproj" />
+	  <ProjectReference Include="..\..\Domain\Hexalith.Users.Domain\Hexalith.Identities.Domain.csproj" />
 	</ItemGroup>
 </Project>
