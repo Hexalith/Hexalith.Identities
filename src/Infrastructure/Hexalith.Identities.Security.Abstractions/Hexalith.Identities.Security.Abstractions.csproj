@@ -7,6 +7,5 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\Domain\Hexalith.Identities.Domain.Abstractions\Hexalith.Identities.Domain.Abstractions.csproj" />
-	  <ProjectReference Include="..\..\Domain\Hexalith.Users.Domain\Hexalith.Identities.Domain.csproj" />
 	</ItemGroup>
 </Project>
