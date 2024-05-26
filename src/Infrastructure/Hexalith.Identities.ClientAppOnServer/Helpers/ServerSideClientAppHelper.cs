@@ -4,6 +4,12 @@
 //     See LICENSE file in the project root for full license information.
 // </copyright>
 
+namespace Hexalith.Identities.ClientAppOnServer.Helpers;
+
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
+
 using Dapr.Actors.Runtime;
 
 using FluentValidation;
@@ -12,9 +18,11 @@ using Hexalith.Application.Buses;
 using Hexalith.Application.Commands;
 using Hexalith.Application.Projections;
 using Hexalith.Application.Tasks;
+using Hexalith.Authentications.UI.Components.Account;
 using Hexalith.Domain.Messages;
 using Hexalith.Identities.ClientAppOnServer.Security;
 using Hexalith.Identities.ClientAppOnServer.Services;
+using Hexalith.Identities.Security.Abstractions.Models;
 using Hexalith.Infrastructure.DaprRuntime.Helpers;
 using Hexalith.Infrastructure.WebApis.Helpers;
 
@@ -32,29 +40,20 @@ using Microsoft.FluentUI.AspNetCore.Components;
 
 using Serilog;
 
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Reflection;
-
-namespace Hexalith.Identities.ClientAppOnServer.Helpers;
-
 /// <summary>
 /// Class HexalithWebApi.
 /// </summary>
 public static class ServerSideClientAppHelper
 {
-    /// <summary>
-    /// Adds Hexalith server-side client application services to the service collection.
-    /// </summary>
-    /// <param name="services">The service collection.</param>
-    /// <param name="configuration">The configuration.</param>
-    /// <returns>The updated service collection.</returns>
-    public static IServiceCollection AddHexalithServerSideClientApp(
-        this IServiceCollection services,
-        IConfiguration configuration)
-    {
-        return services.AddHexalithClientApp(configuration);
-    }
+    ///// <summary>
+    ///// Adds Hexalith server-side client application services to the service collection.
+    ///// </summary>
+    ///// <param name="services">The service collection.</param>
+    ///// <param name="configuration">The configuration.</param>
+    ///// <returns>The updated service collection.</returns>
+    // public static IServiceCollection AddHexalithServerSideClientApp(
+    //    this IServiceCollection services,
+    //    IConfiguration configuration) => services.AddHexalithClientApp(configuration);
 
     /// <summary>
     /// Creates the server-side client application.
@@ -80,7 +79,8 @@ public static class ServerSideClientAppHelper
 
         startupLogger.Information("Configuring {AppName} ...", applicationName);
         builder.Services
-            .AddAuthenticationUI(builder.Configuration)
+
+            // .AddAuthenticationUI(builder.Configuration)
             .AddCascadingAuthenticationState()
             .AddEndpointsApiExplorer()
             .AddSwaggerGen(c => c.SwaggerDoc("v1", new() { Title = applicationName, Version = version, }))
@@ -96,7 +96,8 @@ public static class ServerSideClientAppHelper
             .AddDapr();
 
         _ = builder.Services
-            .AddHexalithServerSideClientApp(builder.Configuration)
+
+            // .AddHexalithServerSideClientApp(builder.Configuration)
             .AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
@@ -127,9 +128,6 @@ public static class ServerSideClientAppHelper
             .AddApiEndpoints();
 
         builder.Services
-            .AddSendGridEmail(builder.Configuration)
-            .TryAddSingleton<IEmailSender<ApplicationUser>, EmailSender>();
-        builder.Services
             .TryAddSingleton<IEmailSender, EmailSender>();
 
         // if (debugInVisualStudio)
@@ -152,7 +150,6 @@ public static class ServerSideClientAppHelper
             });
         _ = builder.Services
             .AddGeolocationServices()
-            .AddGooglePlacesServices(builder.Configuration)
             .AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>()
             .AddScoped<IdentityUserAccessor>()
             .AddScoped<IdentityRedirectManager>();

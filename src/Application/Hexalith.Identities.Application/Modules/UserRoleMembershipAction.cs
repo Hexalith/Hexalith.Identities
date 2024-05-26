@@ -7,7 +7,7 @@
 namespace Hexalith.Identities.Application.Modules;
 
 using Hexalith.Application.Authorizations;
-using Hexalith.Application.Modules;
+using Hexalith.Application.Modules.Modules;
 
 /// <summary>
 /// Represents an action to add a role to a user.

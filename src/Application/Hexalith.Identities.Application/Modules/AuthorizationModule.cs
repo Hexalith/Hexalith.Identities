@@ -6,7 +6,12 @@
 
 namespace Hexalith.Identities.Application.Modules;
 
-using Hexalith.Application.Modules;
+using System.Collections.Generic;
+
+using Hexalith.Application.Modules.Modules;
+
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
 /// Represents the authorization module details.
@@ -33,6 +38,14 @@ public sealed class AuthorizationModule : IApplicationModule
     /// </summary>
     public const string Version = "1.0";
 
+    public IEnumerable<string> Dependencies { get; }
+
+    public string Id { get; }
+
+    public ModuleType ModuleType { get; }
+
+    public int OrderWeight { get; set; }
+
     /// <inheritdoc/>
     string IApplicationModule.Description => Description;
 
@@ -44,4 +57,6 @@ public sealed class AuthorizationModule : IApplicationModule
 
     /// <inheritdoc/>
     string IApplicationModule.Version => Version;
+
+    public void AddServices(IServiceCollection services, IConfiguration configuration) => throw new NotImplementedException();
 }
