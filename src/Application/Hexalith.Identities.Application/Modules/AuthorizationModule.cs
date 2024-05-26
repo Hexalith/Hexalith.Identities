@@ -7,6 +7,7 @@
 namespace Hexalith.Identities.Application.Modules;
 
 using System.Collections.Generic;
+using System.Reflection;
 
 using Hexalith.Application.Modules.Modules;
 
@@ -38,13 +39,20 @@ public sealed class AuthorizationModule : IApplicationModule
     /// </summary>
     public const string Version = "1.0";
 
-    public IEnumerable<string> Dependencies { get; }
+    /// <inheritdoc/>
+    public IEnumerable<string>? Dependencies { get; }
 
-    public string Id { get; }
+    /// <inheritdoc/>
+    public string Id => "Hexalith.Entities";
 
+    /// <inheritdoc/>
     public ModuleType ModuleType { get; }
 
+    /// <inheritdoc/>
     public int OrderWeight { get; set; }
+
+    /// <inheritdoc/>
+    public IEnumerable<Assembly> PresentationAssemblies => [GetType().Assembly];
 
     /// <inheritdoc/>
     string IApplicationModule.Description => Description;
@@ -58,5 +66,6 @@ public sealed class AuthorizationModule : IApplicationModule
     /// <inheritdoc/>
     string IApplicationModule.Version => Version;
 
+    /// <inheritdoc/>
     public void AddServices(IServiceCollection services, IConfiguration configuration) => throw new NotImplementedException();
 }
